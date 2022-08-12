@@ -10,8 +10,8 @@ pipeline {
         }
         post {
             success {
-                echo 'Archiving the aerifacts'
-                archiveArtifacts artifacts : '**/*.war'
+                echo 'Archiving the artifacts'
+                archiveArtifacts artifacts: '**/target/*.war'
             }
         }
     }
