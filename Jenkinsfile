@@ -21,9 +21,7 @@ pipeline {
             parallel{
                 stage ("Deploy to Staging"){
                     steps {
-                        sshagent(['b0962c0e-e3d6-4ff1-8cca-7a282bad7546']) {
-                       sh "scp -o StrictHostKeyChecking=no **/*.jar ec2-user@13.234.186.249:/opt/tomcat/webapps/"
-      }
+                        deploy adapters: [tomcat7(credentialsId: 'bcccb6a4-0208-43a5-8579-be32f8d97d37', path: '', url: 'http://13.234.186.249:8282/')], contextPath: null, war: '**/*.jar'
                     }
                 }
             }
