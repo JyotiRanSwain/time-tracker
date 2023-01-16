@@ -4,8 +4,8 @@ pipeline {
     tools {
         maven 'local_maven'
     }
-    stages{
-        stage('Build'){
+stages{
+    stage('Build'){
             steps {
                 sh 'mvn clean package'
             }
@@ -16,15 +16,22 @@ pipeline {
                 }
             }
         }
+    stage('SonarQube analysis') {
+        steps {
+    withSonarQubeEnv('sonarqube-9.8') { 
+      // You can override the credential to be used
+      sh 'mvn clean verify sonar:sonar \
+  -Dsonar.projectKey=demo-project \
+  -Dsonar.host.url=http://13.232.158.245:9000 \
+  -Dsonar.login=sqp_ec8638cc383ef13e6be8b950592b51af932363c2'
+    }
+    }
+  }
 
         stage ('Deployments'){
-            parallel{
-                stage ("Deploy to Staging"){
-                    steps {
-                        deploy adapters: [tomcat7(credentialsId: 'bcccb6a4-0208-43a5-8579-be32f8d97d37', path: '', url: 'http://13.234.186.249:8282/')], contextPath: null, war: '**/*.war'
+                             steps {
+                       echo 'Deploy success'
                     }
                 }
-            }
-        }
     }
 }
