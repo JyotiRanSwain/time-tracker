@@ -41,7 +41,7 @@ stages{
   stage('Run Container on Dev Server') {         
     steps{
 	       script {
-      def dockerRun = "docker run -p 8383:8080 -d --name myweb2 jyotiranswain/wabapp2:$BUILD_NUMBER"
+      def dockerRun = "docker run -p 8484:8080 -d --name myweb2 jyotiranswain/wabapp2:$BUILD_NUMBER"
   
 	    sshagent(['docker']) {
        sh "ssh -o StrictHostKeyChecking=no ec2-user@15.207.99.210 ${dockerRun}"
