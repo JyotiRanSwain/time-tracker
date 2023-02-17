@@ -2,7 +2,7 @@
 FROM tomcat:8.5
 
 #COPY
-COPY ./target/LoginWebApp.war /usr/local/tomcat/webapps/
+COPY ./target/time-tracker-web-0.5.0-SNAPSHOT.war /usr/local/tomcat/webapps/
 
 WORKDIR /usr/local/tomcat/webapps/
 
