@@ -44,7 +44,7 @@ stages{
       def dockerRun = "docker run -p 8383:8080 -d --name myweb1 jyotiranswain/wabapp2:$BUILD_NUMBER"
   
 	    sshagent(['docker']) {
-       sh "ssh -o StrictHostKeyChecking=no ec2-user@3.7.66.45 ${dockerRun}"
+       sh "ssh -o StrictHostKeyChecking=no ec2-user@15.207.99.210 ${dockerRun}"
 }
 	       }
     }       
