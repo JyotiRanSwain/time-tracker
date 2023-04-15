@@ -11,7 +11,8 @@
     <title>My Project</title>
 </head>
 <body>
-  <h1>Smruti Sudha Boity</h1>
+  <h1>Jyoti Class</h1>
+  <h2>Smruti Sudha Boity</h2>
   <p>
     This is a very simple example web page on a JSP.
   </p>
