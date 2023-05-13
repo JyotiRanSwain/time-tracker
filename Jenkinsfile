@@ -44,9 +44,9 @@ stages{
        sh "scp -o StrictHostKeyChecking=no pod.yml ec2-user@18.141.208.35:/home/ec2-user/kube"
        script{
         try{
-          sh "ssh ec2-user@18.141.208.35 kubectl apply -f ."
+          sh "ssh ec2-user@18.141.208.35 sudo kubectl apply -f ."
         }catch(error){
-          sh "ssh ec2-user@18.141.208.35 kubectl create -f ."
+          sh "ssh ec2-user@18.141.208.35 sudo kubectl create -f ."
         }
        }
 }
