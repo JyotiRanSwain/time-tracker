@@ -41,7 +41,7 @@ stages{
   stage('Deply to k8s') {         
     steps{
 	       script {
-      def dockerRun = "whoami"
+      def dockerRun = "kubectl apply -f pod.yml"
   
 	    sshagent(['kubectl']) {
        sh "ssh -o StrictHostKeyChecking=no ec2-user@18.141.208.35 ${dockerRun}"
