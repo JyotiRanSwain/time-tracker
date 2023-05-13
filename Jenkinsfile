@@ -2,6 +2,9 @@ pipeline {
     agent { 
 	    label 'kubectl' 
     }
+environment {
+        NEWRELIC_API_KEY = credentials('aws-eks')
+    }
     
     tools {
         maven 'local_maven'
