@@ -2,15 +2,13 @@ pipeline {
     agent { 
 	    label 'kubectl' 
     }
-environment {
-        NEWRELIC_API_KEY = credentials('aws-eks')
-    }
     
     tools {
         maven 'local_maven'
     }
      environment {     
-         DOCKERHUB_CREDENTIALS= credentials('docker-hub')     
+         DOCKERHUB_CREDENTIALS= credentials('docker-hub')
+	 EKS_CREDENTIALS= credentials('aws-eks')  
        } 
 
 stages{
