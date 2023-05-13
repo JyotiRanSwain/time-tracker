@@ -44,7 +44,7 @@ stages{
       def dockerRun = "kubectl apply -f pod.yml"
   
 	    sshagent(['kubectl']) {
-       sh "ssh -o StrictHostKeyChecking=no ec2-user@15.207.99.210 ${dockerRun}"
+       sh "ssh -o StrictHostKeyChecking=no ec2-user@18.141.208.35 ${dockerRun}"
 }
 	       }
     }       
