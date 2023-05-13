@@ -41,10 +41,10 @@ stages{
   stage('Deply to k8s') {         
     steps{
 	       script {
-      def dockerRun = "kubectl apply -f pod.yml"
+      def dockerRun = "kubectl apply -f /home/ec2-user/kube/pod.yml"
   
 	    sshagent(['kubectl']) {
-       sh "scp -o StrictHostKeyChecking=no pod.yml ec2-user@18.141.208.35:/home/ec2-user/"
+       sh "scp -o StrictHostKeyChecking=no pod.yml ec2-user@18.141.208.35:/home/ec2-user/kube"
        sh "ssh -o StrictHostKeyChecking=no ec2-user@18.141.208.35 ${dockerRun}"
 }
 	       }
