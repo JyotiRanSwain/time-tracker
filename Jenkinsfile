@@ -43,7 +43,9 @@ stages{
   stage('Deply to k8s') {         
     steps{
       withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'k8s', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
-     sh 'whoami'
+     sh 'curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.23.17/2023-03-17/bin/linux/amd64/kubectl'
+     sh 'chmod +x ./kubectl'
+     sh 'mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$HOME/bin:$PATH'
      sh 'kubectl apply -f pod.yml'
 }
     }       
