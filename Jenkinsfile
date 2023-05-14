@@ -46,6 +46,7 @@ withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsI
     sh 'kubectl apply -f pod.yml'
 }
 }
+  }
     }   
 
   } //stages 
