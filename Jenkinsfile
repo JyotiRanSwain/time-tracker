@@ -8,7 +8,6 @@ pipeline {
     }
      environment {     
          DOCKERHUB_CREDENTIALS= credentials('docker-hub')
-	 EKS_CREDENTIALS= credentials('aws-eks')  
        } 
 
 stages{
