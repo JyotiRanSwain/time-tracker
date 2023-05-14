@@ -44,7 +44,6 @@ stages{
     steps{
 	sh 'chmod +x kube.sh'
 	sh './kube.sh'
-}
     }       
     }   
 
