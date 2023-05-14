@@ -42,9 +42,7 @@ stages{
     }
   stage('Deply to k8s') {         
     steps{
-	withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: '', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
-    sh 'kubectl apply -f pod.yml'
-}
+	sh 'kubectl apply -f pod.yml'
     }
     }   
 
