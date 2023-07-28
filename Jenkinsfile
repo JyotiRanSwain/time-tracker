@@ -28,7 +28,7 @@ pipeline {
                 success {
                     archiveArtifacts '**/target/*.war'
                     sh 'aws configure set region ap-south-1'
-                    sh 'aws s3 cp web/target/*.war s3://fudzeo'
+                    sh 'aws s3 cp web/target/*.war s3://powercloud21'
                 }
             }
         }
